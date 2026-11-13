@@ -1,0 +1,55 @@
+* {
+	
+	margin: 0;
+	padding: 0;
+}
+
+body {
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	min-height: 100vh;
+}
+
+.screen {
+	
+	width: 90vw;
+	height: 90vh;
+	border: 4px solid black;
+
+	display: flex;
+	justify-content: center;
+}
+
+.starting-screen {
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	gap: 15px;
+	text-align: center;
+}
+
+.menu-screen,
+.game-screen,
+.death-screen {
+	
+	display: none;
+}
+
+.title {
+
+	padding-bottom: 25px;
+
+	font-size: 3.5em;
+}
+
+.start-btn,
+.quit-btn {
+	
+	font-size: 1.75em;
+}
