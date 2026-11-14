@@ -1,9 +1,11 @@
-// still not very sure about how to organise the files for this project but i suppose i'll dump most stuff in here for the time being until it begins getting too overwhelming or i notice i should probably split stuff xP
+// Screens
 
 const startingScreen = document.querySelector(".starting-screen");
 const menuScreen = document.querySelector(".menu-screen");
 const gameScreen = document.querySelector(".game-screen");
 const deathScreen = document.querySelector(".death-screen");
+
+// Buttons
 
 const startBtn = document.querySelector(".start-btn");
 const quitBtn = document.querySelector(".quit-btn");
@@ -11,11 +13,19 @@ const quitBtn = document.querySelector(".quit-btn");
 const startGameBtn = document.querySelector(".start-game-btn");
 const returnToStartBtn = document.querySelector(".return-start-btn");
 
-// im so joy and whimsy pilled !! i love my vibeo jame !!
+// Clickable UI stuff
+
+const speed = document.querySelectorAll(".speed-opt");
+const diff = document.querySelectorAll(".diff-opt");
+
+// Event listener thingamabobs and whatnot
+
 let menuVibeoJame;
 let gameVibeoJame;
 
 window.addEventListener("load", () => {
+
+	// Buttons and what not
 
 	startBtn.addEventListener("click", () => {
 
@@ -34,8 +44,26 @@ window.addEventListener("load", () => {
 		menuVibeoJame.returnToStart();
 	});
 
-	// ill think of the death logic later, game isnt even playable yet so xP
+	// Clickable UI stuff (idk what to call these but i think this is a good enough descriptor
+	
+	speed.forEach((speedOptions) => {
 
-	// ought to put the keybinds for the game here when i get to the actual game logic xP
+		speedOptions.addEventListener("click", () => {
+
+			console.log("picked one of the speed options test test bing bong ding dong");
+		
+			menuVibeoJame.chosenSpeed = speedOptions.textContent;
+		});
+	});
+	
+	diff.forEach((diffOptions) => {
+		 
+		diffOptions.addEventListener("click", () => {                                                            
+				
+			console.log("picked one of the speed options test test bing bong ding dong");
+
+			menuVibeoJame.chosenDiff = diffOptions.textContent;
+		});                                                         
+	});
 });
 
