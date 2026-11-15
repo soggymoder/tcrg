@@ -34,6 +34,11 @@ body {
 	text-align: center;
 }
 
+.game-screen {
+
+	position: relative;
+}
+
 .menu-screen,
 .game-screen,
 .death-screen {
