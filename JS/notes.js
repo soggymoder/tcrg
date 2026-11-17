@@ -1,18 +1,22 @@
 class Note {
 
 	constructor 
-	()
+	(chosenSpeed)
 	{
 		this.gameScreen = document.querySelector(".game-screen");
 	
 		this.note = document.createElement("div");
 		this.sprite = "Imgs/testnote.png";
+		
 		this.width = 75;
 		this.height = 75;
 		this.x = this.gameScreen.clientWidth - this.width; // spent a good bit on the MDN mines looking for something to make the fuckass start position be responsive just like the game screen's size oughhhhhhh
 		this.y = this.gameScreen.clientHeight * 0.40; // this should give me enough spare space for when i add ton to the bottom of the screen,, unless i change my mind, in which case, ig centering this will do,,
 
-		this.speed = null;
+		this.noteDirections = ["left", "up", "right", "down"];
+		this.noteDirectionPicker();
+
+		this.speed = chosenSpeed;
 		this.dmg = -1;
 
 		this.note.style.position = "absolute";
@@ -26,6 +30,12 @@ class Note {
 		this.note.style.backgroundSize = `cover`
 
 		this.gameScreen.appendChild(this.note);
+	}
+
+	noteDirectionPicker
+	()
+	{
+		this.randomNote = this.noteDirections[Math.floor(this.noteDirections.length * Math.random())];
 	}
 
 	move
