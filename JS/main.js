@@ -35,7 +35,7 @@ window.addEventListener("load", () => {
 
 	startGameBtn.addEventListener("click", () => {
 		
-		gameVibeoJame = new Game(parseFloat(menuVibeoJame.chosenSpeed)); // thank you SO thread from 17 years ago for the tip on how to parse a string into an integer :D
+		gameVibeoJame = new Game(parseFloat(menuVibeoJame.chosenSpeed), parseFloat(menuVibeoJame.chosenDiff)); // thank you SO thread from 17 years ago for the tip on how to parse a string into an integer :D
 		gameVibeoJame.gameStart();
 	});
 

@@ -1,7 +1,7 @@
 class Game {
 
 	constructor
-	(chosenSpeed) 
+	(chosenSpeed, chosenDiff) 
 	{
 		this.menuScreen = document.querySelector(".menu-screen");
 		this.gameScreen = document.querySelector(".game-screen");
@@ -12,13 +12,17 @@ class Game {
 		this.score = document.querySelector(".score-val");
 		this.combo = document.querySelector(".combo-val");
 
-		this.currentHP = null;
-		this.currentTime = null;
-		this.currentScore = null;
-		this.currentCombo = null;
-	
+		this.currentHP = 0;
+		this.currentTime = 0;
+		this.currentScore = 0;
+		this.currentCombo = 0;
+
+		this.hp = chosenDiff;
 		this.speed = 5 * chosenSpeed;
 		
+		this.currentCombo = 0;
+		this.highestCombo = 0;
+
 		this.notes = [];
 
 		this.animationInterval = null;
@@ -29,16 +33,12 @@ class Game {
 	{
 		this.menuScreen.style.display = "none";
 		this.gameScreen.style.display = "flex";
-
-		this.HP.textContent = this.currentHP;
-		this.time.textContent = this.currentTime;
-		this.score.textContent = this.currentScore;
-		this.combo.textContent = this.currentCombo;
-		
+	
 		this.controlsListener();
-
-		this.ball = new Player();	
 		
+		this.ball = new Player();	
+		this.currentHP = this.hp;
+
 		this.spawnNote();
 
 		this.animationInterval = 
@@ -46,6 +46,62 @@ class Game {
 			{
 				this.animate();
 			}, 16);
+	
+		this.timer();
+
+		this.HP.textContent = this.currentHP;
+		this.time.textContent = this.currentTime;
+		this.score.textContent = this.currentScore;
+		this.combo.textContent = this.currentCombo;
+	}
+
+	timer
+	()
+	{
+		this.timerThingy =
+			setInterval(() =>
+			{
+				this.time.textContent++;
+				this.currentTime++;
+			}, 1000);
+
+		if (this.currentHP === 0) {
+			
+			clearInterval(this.timerThingy);
+		}
+	}
+
+	scoring // i already had this.score i didnt know what else to name this :sob:
+	()
+	{
+		this.currentScore += 100;
+		this.score.textContent = this.currentScore;
+		
+		// ought to make the logic for the bomb cog here too 
+	}
+
+	comboing
+	()
+	{			
+		this.currentCombo += 1;
+		this.combo.textContent = this.currentCombo;
+
+		if (this.currentCombo > this.highestCombo) {
+				
+			this.highestCombo = this.currentCombo;
+		}
+	}
+
+	comboBreaking
+	()
+	{
+		if (this.currentCombo > this.highestCombo) {
+
+			this.highestCombo = this.currentCombo;
+		}
+
+		this.currentCombo = 0;
+		this.combo.textContent = this.currentCombo;
 	}
 
 	spawnNote
@@ -65,38 +121,61 @@ class Game {
 	animate
 	()
 	{
-		this.notes.forEach((note) => {
+		this.notes.forEach((note, index) => {
 			
 			note.move();
+
+			if (note.x + note.width < this.ball.x)
+			{
+				this.notes.splice(index, 1);                                                      
+				note.note.remove();
+
+				this.currentHP -= 1;
+				this.HP.textContent = this.currentHP;
+
+				this.comboBreaking();
+			}
 		});
 	}
 
-	// i CANNOT wait for when i have the time to clean out all files and sort everything out because this whole section below is an eyesore for me to read right now but blehh we ball
-
-	controlsListener
+  controlsListener
 	()
 	{		
 		addEventListener("keydown", (event) => {	
-			/* 
-				 today i found out that a forEach can have two parameters, neat!! :D
+			
+			this.noteHit = false;
 
-				 i have noticed that some times when i press the right arrow here it will just delete two notes at once.. 
-			   im not 100% sure why but it only happened twice in 30 presses so i think ill keep it for now and look into this again post MVP ;w;
-			*/
+			// today i found out that a forEach can have two parameters, neat!! :D
 			this.notes.forEach((note, index) => {
 
+				// slicing the first 5 characters to get rid of "Arrow" here xP
 				this.keyPressed = event.key.slice(5, event.key.length).toLowerCase() === note.randomNote;
-				console.log(note, index);
 
 				if (this.keyPressed === true) {
-					
-					if (note.x < this.ball.x + this.ball.width && note.x + note.width > this.ball.x) { // this a P.I.T.A to visualize BUT IT WORKS THATS WHAT MATTERS RIGHT??????????????!?!?
 
+					if (note.x < this.ball.x + this.ball.width && note.x + note.width > this.ball.x) {
+						
 						this.notes.splice(index, 1);
 						note.note.remove();
+
+						this.scoring();
+						this.noteHit = true;
 					}
 				}
 			});
+			
+			if (this.noteHit === true) {
+
+				 this.comboing();
+			 }
+
+			else if (this.noteHit === false) {
+
+				this.currentHP -= 1;
+				this.HP.textContent = this.currentHP;
+
+				this.comboBreaking();
+			}
 		});
 	}
 }
