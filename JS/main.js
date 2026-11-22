@@ -1,12 +1,10 @@
 // Screens
-
 const startingScreen = document.querySelector(".starting-screen");
 const menuScreen = document.querySelector(".menu-screen");
 const gameScreen = document.querySelector(".game-screen");
 const deathScreen = document.querySelector(".death-screen");
 
 // Buttons
-
 const startBtn = document.querySelector(".start-btn");
 const quitBtn = document.querySelector(".quit-btn");
 
@@ -17,17 +15,28 @@ const restartGameBtn = document.querySelector(".restart-game-btn");
 const returnToMenuBtn = document.querySelector(".return-menu-btn");
 
 // Clickable UI stuff
-
 const speed = document.querySelectorAll(".speed-opt");
 const diff = document.querySelectorAll(".diff-opt");
 
-// Stuff for the event listeners
-
+// Stuff for the event listeners + da highscore
 let menuVibeoJame;
 let gameVibeoJame;
 
-// Event listener thingamabobs and whatnot
+const highScore = document.querySelector(".high-score-val");
+let highScoreValue = 0;
 
+function saveScore
+(score)
+{
+	if (score > highScoreValue) {
+
+		highScoreValue = score;
+	}
+
+	highScore.textContent = highScoreValue;
+}
+
+// Event listener thingamabobs and whatnot
 window.addEventListener("load", () => {
 
 	// Buttons and what not
@@ -40,7 +49,7 @@ window.addEventListener("load", () => {
 
 	startGameBtn.addEventListener("click", () => {
 		
-		gameVibeoJame = new Game(parseFloat(menuVibeoJame.chosenSpeed), parseFloat(menuVibeoJame.chosenDiff)); // thank you SO thread from 17 years ago for the tip on how to parse a string into an integer :D
+		gameVibeoJame = new Game(parseFloat(menuVibeoJame.chosenSpeed), parseFloat(menuVibeoJame.chosenDiff), saveScore); // thank you SO thread from 17 years ago for the tip on how to parse a string into an integer :D
 		gameVibeoJame.gameStart();
 	});
 
@@ -51,7 +60,7 @@ window.addEventListener("load", () => {
 
 	restartGameBtn.addEventListener("click", () => {
 		
-		gameVibeoJame = new Game(parseFloat(menuVibeoJame.chosenSpeed), parseFloat(menuVibeoJame.chosenDiff));
+		gameVibeoJame = new Game(parseFloat(menuVibeoJame.chosenSpeed), parseFloat(menuVibeoJame.chosenDiff), saveScore);
 		gameVibeoJame.gameStart();
 	});
 
@@ -61,8 +70,7 @@ window.addEventListener("load", () => {
 	});
 
 	// Clickable UI stuff (idk what to call these but i think this is a good enough descriptor
-	
-	speed.forEach((speedOptions) => {
+		speed.forEach((speedOptions) => {
 
 		speedOptions.addEventListener("click", () => {
 

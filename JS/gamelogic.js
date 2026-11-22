@@ -1,7 +1,7 @@
 class Game {
 
 	constructor
-	(chosenSpeed, chosenDiff) 
+	(chosenSpeed, chosenDiff, saveScore) 
 	{
 		this.menuScreen = document.querySelector(".menu-screen");
 		this.gameScreen = document.querySelector(".game-screen");
@@ -21,7 +21,9 @@ class Game {
 
 		this.hp = chosenDiff;
 		this.speed = 5 * chosenSpeed;
-		
+
+		this.scoreSaver = saveScore;
+
 		this.currentCombo = 0;
 		this.highestCombo = 0;
 
@@ -117,6 +119,8 @@ class Game {
 
 			this.dsScore.textContent = this.currentScore;
 			this.dsHCombo.textContent = this.highestCombo;
+
+			this.scoreSaver(this.currentScore);
 
 			this.stopGame();
 		}
