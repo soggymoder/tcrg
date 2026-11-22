@@ -11,6 +11,8 @@ class Game {
 		this.time = document.querySelector(".time-val");
 		this.score = document.querySelector(".score-val");
 		this.combo = document.querySelector(".combo-val");
+		this.dsScore = document.querySelector(".ds-score-val");
+		this.dsHCombo = document.querySelector(".ds-hcombo-val");
 
 		this.currentHP = 0;
 		this.currentTime = 0;
@@ -33,6 +35,7 @@ class Game {
 	{
 		this.menuScreen.style.display = "none";
 		this.gameScreen.style.display = "flex";
+		this.deathScreen.style.display = "none";
 	
 		this.controlsListener();
 		
@@ -52,7 +55,7 @@ class Game {
 		this.HP.textContent = this.currentHP;
 		this.time.textContent = this.currentTime;
 		this.score.textContent = this.currentScore;
-		this.combo.textContent = this.currentCombo;
+		this.combo.textContent = this.currentCombo;	
 	}
 
 	timer
@@ -104,6 +107,44 @@ class Game {
 		this.combo.textContent = this.currentCombo;
 	}
 
+	deathScreenTrigger
+	()
+	{
+		if (this.currentHP === 0) {
+
+			this.gameScreen.style.display = "none";
+			this.deathScreen.style.display = "flex";
+
+			this.dsScore.textContent = this.currentScore;
+			this.dsHCombo.textContent = this.highestCombo;
+
+			this.stopGame();
+		}
+	}
+
+	stopGame
+	()
+	{
+		// Erasing you, erasing me,,,,.,,
+		clearInterval(this.animationInterval);
+		clearInterval(this.timerThingy);
+		clearTimeout(this.goMyNotes);
+
+		// Eras ng  ou,  ras ng me, ,, .,
+		this.notes.forEach((note) => {
+			
+			note.note.remove();
+		});
+
+		this.notes.length = 0; 
+
+		//  ra  n   ou   r s n   e,  , ., 
+		this.ball.ball.remove();
+
+		// anyway, removing the keyboard listener here so that it wont snowball and break everything anymore :P
+		removeEventListener("keydown", this.arrowsInput);
+	}
+
 	spawnNote
 	()
 	{
@@ -132,6 +173,7 @@ class Game {
 
 				this.currentHP -= 1;
 				this.HP.textContent = this.currentHP;
+				this.deathScreenTrigger();
 
 				this.comboBreaking();
 			}
@@ -141,8 +183,8 @@ class Game {
   controlsListener
 	()
 	{		
-		addEventListener("keydown", (event) => {	
-			
+		this.arrowsInput = (event) => {
+		
 			this.noteHit = false;
 
 			// today i found out that a forEach can have two parameters, neat!! :D
@@ -173,9 +215,13 @@ class Game {
 
 				this.currentHP -= 1;
 				this.HP.textContent = this.currentHP;
+				this.deathScreenTrigger();
 
 				this.comboBreaking();
 			}
-		});
+		};
+
+		// now i can use this on stopGame !! yay !!
+		addEventListener("keydown", this.arrowsInput);
 	}
 }

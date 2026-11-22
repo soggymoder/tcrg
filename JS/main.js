@@ -13,15 +13,20 @@ const quitBtn = document.querySelector(".quit-btn");
 const startGameBtn = document.querySelector(".start-game-btn");
 const returnToStartBtn = document.querySelector(".return-start-btn");
 
+const restartGameBtn = document.querySelector(".restart-game-btn");
+const returnToMenuBtn = document.querySelector(".return-menu-btn");
+
 // Clickable UI stuff
 
 const speed = document.querySelectorAll(".speed-opt");
 const diff = document.querySelectorAll(".diff-opt");
 
-// Event listener thingamabobs and whatnot
+// Stuff for the event listeners
 
 let menuVibeoJame;
 let gameVibeoJame;
+
+// Event listener thingamabobs and whatnot
 
 window.addEventListener("load", () => {
 
@@ -42,6 +47,17 @@ window.addEventListener("load", () => {
 	returnToStartBtn.addEventListener("click", () => {
 		
 		menuVibeoJame.returnToStart();
+	});
+
+	restartGameBtn.addEventListener("click", () => {
+		
+		gameVibeoJame = new Game(parseFloat(menuVibeoJame.chosenSpeed), parseFloat(menuVibeoJame.chosenDiff));
+		gameVibeoJame.gameStart();
+	});
+
+	returnToMenuBtn.addEventListener("click", () => {
+		
+		menuVibeoJame.returnToMenu();
 	});
 
 	// Clickable UI stuff (idk what to call these but i think this is a good enough descriptor
