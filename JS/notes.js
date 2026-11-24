@@ -2,15 +2,15 @@ class Note {
 
 	constructor 
 	(chosenSpeed)
-		{
+	{
 		this.gameScreen = document.querySelector(".game-screen");
 	
 		this.note = document.createElement("div");
 		this.sprites = {
-			left:		"Imgs/noteleft.png",
-			right:	"Imgs/noteright.png",
-			up:			"Imgs/noteup.png",
-			down:		"Imgs/notedown.png",
+			left:		"Imgs/Game/noteleft.png",
+			right:	"Imgs/Game/noteright.png",
+			up:			"Imgs/Game/noteup.png",
+			down:		"Imgs/Game/notedown.png",
 		};
 
 		this.width = 125;

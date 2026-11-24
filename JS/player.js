@@ -6,7 +6,7 @@ class Player {
 		this.gameScreen = document.querySelector(".game-screen");
 
 		this.ball = document.createElement("div");
-		this.sprite = "Imgs/tonplayer.gif";
+		this.sprite = "Imgs/Game/tonplayer.gif";
 		this.width = 250;
 		this.height = 250;
 		this.x = this.gameScreen.clientWidth * 0.05;
