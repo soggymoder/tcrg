@@ -2,19 +2,19 @@ class Note {
 
 	constructor 
 	(chosenSpeed)
-	{
+		{
 		this.gameScreen = document.querySelector(".game-screen");
 	
 		this.note = document.createElement("div");
 		this.sprites = {
-			left: "Imgs/testnoteleft.png",
-			right: "Imgs/testnoteright.png",
-			up: "Imgs/testnoteup.png",
-			down: "Imgs/testnotedown.png",
+			left:		"Imgs/noteleft.png",
+			right:	"Imgs/noteright.png",
+			up:			"Imgs/noteup.png",
+			down:		"Imgs/notedown.png",
 		};
 
-		this.width = 75;
-		this.height = 75;
+		this.width = 125;
+		this.height = 125;
 		this.x = this.gameScreen.clientWidth - this.width; // spent a good bit on the MDN mines looking for something to make the fuckass start position be responsive just like the game screen's size oughhhhhhh
 		this.y = this.gameScreen.clientHeight * 0.40; // this should give me enough spare space for when i add ton to the bottom of the screen,, unless i change my mind, in which case, ig centering this will do,,
 

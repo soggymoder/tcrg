@@ -6,9 +6,9 @@ class Player {
 		this.gameScreen = document.querySelector(".game-screen");
 
 		this.ball = document.createElement("div");
-		this.sprite = "Imgs/testplayer.png";
-		this.width = 150;
-		this.height = 150;
+		this.sprite = "Imgs/tonplayer.gif";
+		this.width = 250;
+		this.height = 250;
 		this.x = this.gameScreen.clientWidth * 0.05;
 		this.y = this.gameScreen.clientHeight * 0.35;
 
