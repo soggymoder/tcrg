@@ -18,10 +18,7 @@ const returnToMenuBtn = document.querySelector(".return-menu-btn");
 const speed = document.querySelectorAll(".speed-opt");
 const diff = document.querySelectorAll(".diff-opt");
 
-// Stuff for the event listeners + da highscore
-let menuVibeoJame;
-let gameVibeoJame;
-
+// Highscore
 const highScore = document.querySelector(".high-score-val");
 let highScoreValue = 0;
 
@@ -36,11 +33,14 @@ function saveScore
 	highScore.textContent = highScoreValue;
 }
 
+// Stuff for the event listeners
+let menuVibeoJame;
+let gameVibeoJame;
+
 // Event listener thingamabobs and whatnot
 window.addEventListener("load", () => {
 
 	// Buttons and what not
-
 	startBtn.addEventListener("click", () => {
 
 		menuVibeoJame = new Menu();
@@ -69,7 +69,7 @@ window.addEventListener("load", () => {
 		menuVibeoJame.returnToMenu();
 	});
 
-	// Clickable UI stuff (idk what to call these but i think this is a good enough descriptor
+		// Clickable UI stuff (idk what to call these but i think this is a good enough descriptor
 		speed.forEach((speedOptions) => {
 
 		speedOptions.addEventListener("click", () => {

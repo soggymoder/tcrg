@@ -18,14 +18,12 @@ class Game {
 		this.currentTime = 0;
 		this.currentScore = 0;
 		this.currentCombo = 0;
+		this.highestCombo = 0;
 
 		this.hp = chosenDiff;
 		this.speed = 5 * chosenSpeed;
 
 		this.scoreSaver = saveScore;
-
-		this.currentCombo = 0;
-		this.highestCombo = 0;
 
 		this.notes = [];
 
@@ -41,11 +39,10 @@ class Game {
 	
 		this.controlsListener();
 		
-		this.ball = new Player();	
+		this.tonball = new Player();	
 		this.currentHP = this.hp;
 
 		this.spawnNote();
-
 		this.animationInterval = 
 			setInterval(() => 
 			{
@@ -80,9 +77,7 @@ class Game {
 	()
 	{
 		this.currentScore += 100;
-		this.score.textContent = this.currentScore;
-		
-		// ought to make the logic for the bomb cog here too 
+		this.score.textContent = this.currentScore;	
 	}
 
 	comboing
@@ -143,7 +138,7 @@ class Game {
 		this.notes.length = 0; 
 
 		//  ra  n   ou   r s n   e,  , ., 
-		this.ball.ball.remove();
+		this.tonball.tonball.remove();
 
 		// anyway, removing the keyboard listener here so that it wont snowball and break everything anymore :P
 		removeEventListener("keydown", this.arrowsInput);
@@ -170,7 +165,7 @@ class Game {
 			
 			note.move();
 
-			if (note.x + note.width < this.ball.x)
+			if (note.x + note.width < this.tonball.x)
 			{
 				this.notes.splice(index, 1);                                                      
 				note.note.remove();
@@ -199,7 +194,7 @@ class Game {
 
 				if (this.keyPressed === true) {
 
-					if (note.x < this.ball.x + this.ball.width && note.x + note.width > this.ball.x) {
+					if (note.x < this.tonball.x + this.tonball.width && note.x + note.width > this.tonball.x) {
 						
 						this.notes.splice(index, 1);
 						note.note.remove();

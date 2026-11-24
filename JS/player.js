@@ -5,23 +5,23 @@ class Player {
 	{
 		this.gameScreen = document.querySelector(".game-screen");
 
-		this.ball = document.createElement("div");
+		this.tonball = document.createElement("div");
 		this.sprite = "Imgs/Game/tonplayer.gif";
-		this.width = 250;
-		this.height = 250;
+		this.width = 200;
+		this.height = 200;
 		this.x = this.gameScreen.clientWidth * 0.05;
 		this.y = this.gameScreen.clientHeight * 0.35;
 
-		this.ball.style.position = "absolute";
-		this.ball.style.width = `${this.width}px`;
-		this.ball.style.height = `${this.height}px`;
-		this.ball.style.top = `${this.y}px`;
-		this.ball.style.left = `${this.x}px`;
+		this.tonball.style.position = "absolute";
+		this.tonball.style.width = `${this.width}px`;
+		this.tonball.style.height = `${this.height}px`;
+		this.tonball.style.top = `${this.y}px`;
+		this.tonball.style.left = `${this.x}px`;
 
-		this.ball.style.backgroundImage = `url("${this.sprite}")`;
-		this.ball.style.backgroundPosition = `center`;
-		this.ball.style.backgroundSize = `cover`
+		this.tonball.style.backgroundImage = `url("${this.sprite}")`;
+		this.tonball.style.backgroundPosition = `center`;
+		this.tonball.style.backgroundSize = `cover`
 
-		this.gameScreen.appendChild(this.ball);
+		this.gameScreen.appendChild(this.tonball);
 	}
 }
