@@ -12,14 +12,19 @@ This project's theme is heavily inspired on [another project of mine](https://gi
 
 TCRG is a pretty easy and straight-forward game, as kind of explained in the above section, its a 4 key game that you play with each of your arrow keys - each cog has the shape of it's corresponding direction embued into it's design, but, if you can't tell it in game, the controls go like:
 
-Yellow - Up 
+Yellow - Up
+
 Blue - Left
+
 Red - Right
+
 Green - Down
 
 (I inspired myself off the order of the colors for the buttons on an old XBOX controler i have :P)
 
 On the main menu you can also choose what speed you want the game to be at and what "difficulty" you want to play in (all this does is select how many lives you have)
+
+HUD wise, the C stands for Combo, S for Score, HC for highest combo, FS for final score and HS for highscore !!
 
 ## Credits, sort of
 
