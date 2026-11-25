@@ -10,7 +10,7 @@ class Player {
 		this.width = 200;
 		this.height = 200;
 		this.x = this.gameScreen.clientWidth * 0.05;
-		this.y = this.gameScreen.clientHeight * 0.35;
+		this.y = this.gameScreen.clientHeight * 0.37,5;
 
 		this.tonball.style.position = "absolute";
 		this.tonball.style.width = `${this.width}px`;
