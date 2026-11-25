@@ -20,28 +20,42 @@
 	</div>
 
 	<div class = "menu-screen screen">
-		<span class = "high-score">HS: <span class = "high-score-val">0</span> </span>
-		
-		<ul class = "speed">
-			<li>Speed:</li>
-			<li class = "speed-opt">1x</li>
-			<li class = "speed-opt">2x</li>
-			<li class = "speed-opt">3x</li>
-		</ul>
+		<div class = "menu-screen-ton">
+			<img class ="hud-menu-screen" src="Imgs/Menus/menuton.png" alt="highscore">
+		</div>
 
-		<ul class = "difficulty">
-			<li class = "diff-opt">5x - Easy</li>
-			<li class = "diff-opt">3x - Normal</li>
-			<li class = "diff-opt">1x - Hard</li>
-		</ul>
-
-		<button class = "start-game-btn button">
-			<img src="Imgs/Buttons/menustartgame.png" alt="Game starting button">
-		</button>
+		<div class = "menu-screen-options">
+			<span class = "high-score">
+				<img class ="hud-menu-screen" src="Imgs/HUD/hudhighscore.png" alt="highscore">
+				<span class = "high-score-val">0</span> 
+			</span>
 		
-		<button class = "return-start-btn button">
-			<img src="Imgs/Buttons/menureturnstart.png" alt="Return to starting screen button">
-		</button>
+			<ul class = "speed">
+					<img class ="hud-menu-screen" src="Imgs/HUD/hudspeed.png" alt="speed icon thingy">
+				<li>Speed: </li>
+				<li class = "speed-opt">1x</li>
+				<li class = "speed-opt">2x</li>
+				<li class = "speed-opt">3x</li>
+			</ul>
+
+			<ul class = "difficulty">
+					<img class ="hud-menu-screen" src="Imgs/HUD/hudhp.png" alt="difficulty icon thingy">
+				<li>Difficulty: </li>
+				<li class = "diff-opt">5x (Easy)</li>
+				<li class = "diff-opt">3x (Normal)</li>
+				<li class = "diff-opt">1x (Hard)</li>
+			</ul>
+		
+			<div class = "menu-screen-buttons">
+				<button class = "start-game-btn button">
+					<img src="Imgs/Buttons/menustartgame.png" alt="Game starting button">
+				</button>
+		
+				<button class = "return-start-btn button">
+					<img src="Imgs/Buttons/menureturnstart.png" alt="Return to starting screen button">
+				</button>
+			</div>
+		</div>
 	</div>
 
 	<div class = "game-screen screen">
@@ -71,20 +85,32 @@
 	</div>
 
 	<div class = "death-screen screen">
-		<h1>You lost !!!</h1>
 
-		<span class = "ds-score">Final score: <span class = "ds-score-val">0</span> </span>
-		<span class = "ds-hcombo">Highest combo:<span class = "ds-hcombo-val">0</span> </span>
+		<div class = "death-screen-overall">
+			<h1 class = "death-screen-title">You lost !!!</h1>
+		
+			<div class = "death-screen-hud">
+				<span class = "ds-score">
+					<img class ="hud-death-screen" src="Imgs/HUD/hudfinalscore.png" alt="final score">
+					<span class = "ds-score-val">0</span> 
+				</span>
+				<span class = "ds-hcombo">
+					<img class ="hud-death-screen" src="Imgs/HUD/hudhighestcombo.png" alt="highest combo">
+					<span class = "ds-hcombo-val">0</span> 
+				</span>
+			</div>
 
-		<button class = "restart-game-btn button">
-			<img src="Imgs/Buttons/menurestartgame.png" alt="Game restarting button">
-		</button>
+			<div class = "death-screen-options">
+				<button class = "restart-game-btn button">
+					<img src="Imgs/Buttons/menurestartgame.png" alt="Game restarting button">
+				</button>
 
-		<button class = "return-menu-btn button">
-			<img src="Imgs/Buttons/menureturnmenu.png" alt="Return to menu screen button">
-		</button>
-	</div>
-
+				<button class = "return-menu-btn button">
+					<img src="Imgs/Buttons/menureturnmenu.png" alt="Return to menu screen button">
+				</button>
+			</div>
+		</div>
+	
 	<script src="JS/main.js"></script>
 	<script src="JS/gamelogic.js"></script>
 	<script src="JS/menulogic.js"></script>

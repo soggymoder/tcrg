@@ -16,7 +16,7 @@ class Note {
 		this.width = 100;
 		this.height = 100;
 		this.x = this.gameScreen.clientWidth - this.width; // spent a good bit on the MDN mines looking for something to make the fuckass start position be responsive just like the game screen's size oughhhhhhh
-		this.y = this.gameScreen.clientHeight * 0.44; // this should give me enough spare space for when i add ton to the bottom of the screen,, unless i change my mind, in which case, ig centering this will do,,
+		this.y = this.gameScreen.clientHeight * 0.5 - this.height / 2; // this should give me enough spare space for when i add ton to the bottom of the screen,, unless i change my mind, in which case, ig centering this will do,,
 
 		this.noteDirections = ["left", "right", "up", "down"];
 		this.noteDirectionPicker();
