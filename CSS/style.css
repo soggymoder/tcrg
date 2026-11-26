@@ -74,6 +74,12 @@ body {
 	font-size: 20px;
 }
 
+.speed-opt:hover,
+.diff-opt:hover {
+	
+	color: #9d97a9;
+}
+
 .menu-screen {
 	
 	justify-content: space-around;

@@ -18,12 +18,17 @@ const returnToMenuBtn = document.querySelector(".return-menu-btn");
 const speed = document.querySelectorAll(".speed-opt");
 const diff = document.querySelectorAll(".diff-opt");
 
-// Click click clicky click
+const menuTon = document.querySelector(".menu-screen-ton img");
+
+// Sfx wowie
 const clickingSfx = new Audio("Assets/Sfx/click.mp3");
+const tonBahhhSfx = new Audio("Assets/Sfx/tonbahhh.mp3");
 
 // Highscore
 const highScore = document.querySelector(".high-score-val");
-let highScoreValue = 0;
+let highScoreValue = localStorage.getItem("highScore") || 0;
+
+highScore.textContent = highScoreValue;
 
 function saveScore
 (score)
@@ -31,6 +36,7 @@ function saveScore
 	if (score > highScoreValue) {
 
 		highScoreValue = score;
+		localStorage.setItem("highScore", highScoreValue);
 	}
 
 	highScore.textContent = highScoreValue;
@@ -54,6 +60,23 @@ window.addEventListener("load", () => {
 
 		menuVibeoJame = new Menu();
 		menuVibeoJame.goToMenu();
+	});
+
+	menuTon.addEventListener("click", () => {
+		
+		window.open("https://github.com/soggymoder/tcrg/blob/master/README.md/#how-do-i-play-the-game", "_blank"); // thank you once again SO for existing and being helpful
+	});
+
+	menuTon.addEventListener("contextmenu", (event) => {
+
+		event.preventDefault();
+
+		tonBahhhSfx.play();
+		menuTon.src = "Assets/Imgs/Menus/menutonbahhh.png";
+
+		setTimeout(() => {
+			menuTon.src = "Assets/Imgs/Menus/menuton.png";
+		}, 1500);
 	});
 
 	startGameBtn.addEventListener("click", () => {

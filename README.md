@@ -1,6 +1,6 @@
 # T(on's) C(og) R(ythm-ish) G(ame)
 
-![TCRG'S logo](Imgs/Menus/tcrglogo.png)
+![TCRG'S logo](Assets/Imgs/Menus/tcrglogo.png)
 
 TCRG is a 4 key (sort of) rythm game where you hit cogs (notes) with the corresponding arrow keys at the right moment :D
 

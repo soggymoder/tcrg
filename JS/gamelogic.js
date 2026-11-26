@@ -33,7 +33,9 @@ class Game {
 		this.leftNoteSfx = new Audio("Assets/Sfx/left.wav");
 		this.rightNoteSfx = new Audio("Assets/Sfx/right.wav");
 		this.downNoteSfx = new Audio("Assets/Sfx/down.wav");
+
 		this.wrongNoteSfx = new Audio("Assets/Sfx/wrong.mp3");
+		this.damageTakenSfx = new Audio("Assets/Sfx/damagetaken.mp3");
 		this.aycarambaSfx = new Audio("Assets/Sfx/aycaramba.mp3");
 	}	
 
@@ -174,8 +176,10 @@ class Game {
 			
 			note.move();
 
-			if (note.x + note.width < this.tonball.x)
-			{
+			if (note.x + note.width < this.tonball.x) {
+
+				this.damageTakenSfx.play();
+
 				this.notes.splice(index, 1);                                                      
 				note.note.remove();
 
