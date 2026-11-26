@@ -18,6 +18,9 @@ const returnToMenuBtn = document.querySelector(".return-menu-btn");
 const speed = document.querySelectorAll(".speed-opt");
 const diff = document.querySelectorAll(".diff-opt");
 
+// Click click clicky click
+const clickingSfx = new Audio("Assets/Sfx/click.mp3");
+
 // Highscore
 const highScore = document.querySelector(".high-score-val");
 let highScoreValue = 0;
@@ -38,6 +41,12 @@ let menuVibeoJame;
 let gameVibeoJame;
 
 // Event listener thingamabobs and whatnot
+document.addEventListener("click", () => {
+
+	clickingSfx.currentTime = 0;
+	clickingSfx.play();
+});
+
 window.addEventListener("load", () => {
 
 	// Buttons and what not

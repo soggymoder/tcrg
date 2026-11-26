@@ -28,6 +28,13 @@ class Game {
 		this.notes = [];
 
 		this.animationInterval = null;
+
+		this.upNoteSfx = new Audio("Assets/Sfx/up.wav");
+		this.leftNoteSfx = new Audio("Assets/Sfx/left.wav");
+		this.rightNoteSfx = new Audio("Assets/Sfx/right.wav");
+		this.downNoteSfx = new Audio("Assets/Sfx/down.wav");
+		this.wrongNoteSfx = new Audio("Assets/Sfx/wrong.mp3");
+		this.aycarambaSfx = new Audio("Assets/Sfx/aycaramba.mp3");
 	}	
 
 	gameStart
@@ -108,6 +115,8 @@ class Game {
 	()
 	{
 		if (this.currentHP === 0) {
+
+			this.aycarambaSfx.play();
 
 			this.gameScreen.style.display = "none";
 			this.deathScreen.style.display = "flex";
@@ -201,6 +210,29 @@ class Game {
 
 						this.scoring();
 						this.noteHit = true;
+
+						switch(note.randomNote) {
+
+							case "up":
+
+								this.upNoteSfx.play();
+								break;
+
+							case "left":
+
+								this.leftNoteSfx.play();
+								break;
+
+							case "right":
+
+								this.rightNoteSfx.play();
+								break;
+
+							case "down":
+
+								this.downNoteSfx.play();
+								break;
+						}
 					}
 				}
 			});
@@ -212,10 +244,12 @@ class Game {
 
 			else if (this.noteHit === false) {
 
+				this.wrongNoteSfx.play();
+
 				this.currentHP -= 1;
 				this.HP.textContent = this.currentHP;
 				this.deathScreenTrigger();
-
+				
 				this.comboBreaking();
 			}
 		};

@@ -158,7 +158,7 @@ body {
 	align-items: center;
 }
 
-.death-screen-title,
+.death-screen-title, 
 .death-screen-hud {
 	
 	display: flex;
@@ -169,6 +169,11 @@ body {
 
 	gap: 15px;
 	margin: 25px;
+}
+
+.death-screen-title {
+	
+	font-size: 32px;
 }
 
 .death-screen-options {

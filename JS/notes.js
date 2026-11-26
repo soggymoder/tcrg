@@ -7,10 +7,10 @@ class Note {
 	
 		this.note = document.createElement("div");
 		this.sprites = {
-			left:		"Imgs/Game/noteleft.png",
-			right:	"Imgs/Game/noteright.png",
-			up:			"Imgs/Game/noteup.png",
-			down:		"Imgs/Game/notedown.png",
+			left:		"Assets/Imgs/Game/noteleft.png",
+			right:	"Assets/Imgs/Game/noteright.png",
+			up:			"Assets/Imgs/Game/noteup.png",
+			down:		"Assets/Imgs/Game/notedown.png",
 		};
 
 		this.width = 100;
