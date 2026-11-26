@@ -28,6 +28,7 @@ class Game {
 		this.notes = [];
 
 		this.animationInterval = null;
+		this.speedIncreaseInterval = null;
 
 		this.upNoteSfx = new Audio("Assets/Sfx/up.wav");
 		this.leftNoteSfx = new Audio("Assets/Sfx/left.wav");
@@ -37,6 +38,8 @@ class Game {
 		this.wrongNoteSfx = new Audio("Assets/Sfx/wrong.mp3");
 		this.damageTakenSfx = new Audio("Assets/Sfx/damagetaken.mp3");
 		this.aycarambaSfx = new Audio("Assets/Sfx/aycaramba.mp3");
+
+		this.speedIncreaseSfx = new Audio("Assets/Sfx/speedincrease.mp3");
 	}	
 
 	gameStart
@@ -59,6 +62,7 @@ class Game {
 			}, 16);
 	
 		this.timer();
+		this.speedIncrease();
 
 		this.HP.textContent = this.currentHP;
 		this.time.textContent = this.currentTime;
@@ -80,6 +84,22 @@ class Game {
 			
 			clearInterval(this.timerThingy);
 		}
+	}
+
+	speedIncrease()
+	{
+		this.speedIncreaseInterval = 
+			setInterval(() => {
+				
+				this.speedIncreaseSfx.play();
+
+				this.speed += 1;
+
+				this.notes.forEach((note) => {
+
+					note.speed += 1;
+				});
+			}, 20000);
 	}
 
 	scoring // i already had this.score i didnt know what else to name this :sob:
@@ -138,6 +158,7 @@ class Game {
 		// Erasing you, erasing me,,,,.,,
 		clearInterval(this.animationInterval);
 		clearInterval(this.timerThingy);
+		clearInterval(this.speedIncreaseInterval);
 		clearTimeout(this.goMyNotes);
 
 		// Eras ng  ou,  ras ng me, ,, .,

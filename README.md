@@ -10,6 +10,8 @@ This project's theme is heavily inspired on [another project of mine](https://gi
 
 ## How do i play the game?
 
+### Controls
+
 TCRG is a pretty easy and straight-forward game, as kind of explained in the above section, its a 4 key game that you play with each of your arrow keys - each cog has the shape of it's corresponding direction embued into it's design, but, if you can't tell it in game, the controls go like:
 
 Yellow - Up
@@ -22,16 +24,22 @@ Green - Down
 
 (I inspired myself off the order of the colors for the buttons on an old XBOX controler i have :P)
 
+### Menu(s)
+
 On the main menu you can also choose what speed you want the game to be at and what "difficulty" you want to play in (all this does is select how many lives you have)
 
 HUD wise, the C stands for Combo, S for Score, HC for highest combo, FS for final score and HS for highscore !!
+
+Clicking on Ton on the main menu with your left mouse button will bring you to this README page, but, clicking Ton with your right mouse button will have him "bahhh" at you!! :D
+
+### Misc
+
+You will hear an "Oof!" sound effect for each time you take damage when a cog slides past ton so you know you got damaged,
+
+Hitting a cog early / pressing the wrong key when hitting a cog will make an incorrect buzzer sfx so you know you screwed up :P
 
 ## Credits, sort of
 
 Besides the theme of the game being inspired by another project of mine, the overall (kind of) idea came from another rythm game im quite fond of, [Taiko no Tatsujin](https://www.bandainamcoent.com/games/taiko-no-tatsujin-rhythm-festival), so, thank you Taiko for being a thing i suppose xD
 
 All of the assets in the game were hand drawn by me using my favourite drawing software [Krita](https://krita.org/en/) :D
-
-## Tiny little disclaimer
-
-As of writting this (25/11) the game is not yet finished, i still need to make a local storage for the high-score tracking and add sound effects to the game, these will be added in the very near future :D
