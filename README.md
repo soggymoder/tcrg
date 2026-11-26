@@ -12,7 +12,7 @@ This project's theme is heavily inspired on [another project of mine](https://gi
 
 ### Controls
 
-TCRG is a pretty easy and straight-forward game, as kind of explained in the above section, its a 4 key game that you play with each of your arrow keys - each cog has the shape of it's corresponding direction embued into it's design, but, if you can't tell it in game, the controls go like:
+TCRG is a pretty easy and straight-forward game, as kind of explained in the above section, its a 4 key game (which gets faster every 20 seconds) that you play with each of your arrow keys - each cog has the shape of it's corresponding direction embued into it's design, but, if you can't tell it in game, the controls go like:
 
 Yellow - Up
 
